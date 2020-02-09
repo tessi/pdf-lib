@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { openPdf, Reader } from './open';
 
+import { degrees } from 'src/api/rotations';
 import { PDFDocument } from 'src/index';
 
 (async () => {
@@ -29,10 +30,13 @@ import { PDFDocument } from 'src/index';
   const pdfDoc1 = await PDFDocument.load(base64);
   const embeddedPage = await pdfDoc.embedPdfDocument(pdfDoc1);
   page1.drawEmbeddedPdfPage(embeddedPage, {
-    x: 100,
-    y: 100,
-    width: 200,
-    height: 200,
+    x: 200,
+    y: 200,
+    xScale: 0.2,
+    yScale: 0.2,
+    // xSkew: degrees(20),
+    // ySkew: degrees(80),
+    rotate: degrees(45)
   });
 
   // Serialize the PDFDocument to bytes (a Uint8Array)
