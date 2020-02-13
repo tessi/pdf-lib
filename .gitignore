@@ -3,9 +3,6 @@ apps/node-build/
 node_modules/
 coverage/
 build/
-dist/
-cjs/
-es/
 
 tsBuildInfo.json
 flamegraph.html
